@@ -1,0 +1,96 @@
+\usepackage{ 
+	amsmath,	% Standard Mathe-Paket
+        amssymb,    % Noch ein Paar mathematische Symbole.
+	amsfonts,	% Ergänzt mathematische Symbole.
+	paralist,	% Erweiterung der bereits bestehenden Listenumgebungen
+	listings,	% Code-Formatierung 
+	setspace,	% Zeilenabstand
+	courier,	% Monospace Schrift
+	mathptmx,	% Times New Roman für Lauftext und Überschriften
+	titlesec,   % Um Titel zu formatieren.
+	lipsum,     % Lorem Ipsum
+	subfiles,   % Um subfiles ins Hauptdokument zu integrieren.
+	url,        % Dient zur Auszeichnung und Erstellung von Hyperlinks
+	tabularx,   % Ermöglicht Seitenbreite (linewidth/textwidth) Tbl.
+        colortbl,   % Tabellen färben <3
+        fontspec,
+        array       % Lässt neue Spalten definieren
+}
+
+\usepackage[utf8]{inputenc}  % Eingabekodierung
+\usepackage[ngerman]{babel}  % Sprache (Deutsch, Neue Rechtschreibung)
+\usepackage[none]{hyphenat}  % KEINE Wortumbrüche
+\usepackage[T1]{fontenc}    % Umlaute, Akzente,...
+\usepackage[
+    autostyle=true,
+    german=swiss]
+    {csquotes} % Anführungszeichen mit \enquote.
+\usepackage[
+    backend=biber,
+    style=apa,
+    sorting=nyt]
+    {biblatex} % Biblatex Settings (APA-Deutsch)
+
+\usefonttheme{serif}
+\setmainfont{Arial}
+
+% Definiert die linke und rechte margins.
+\setbeamersize{text margin left=5mm, text margin right=5mm} 
+
+% Definiert die Footline.
+\setbeamertemplate{footline}[text line]{%
+  \parbox{\linewidth}{\vspace*{-16pt}\hspace{0,4\linewidth}\insertshortinstitute\ \mid \insertshorttitle \mid \insertshortdate \hfill\insertpagenumber}}
+\setbeamertemplate{navigation symbols}{}
+
+
+
+\definecolor{highlight1}{HTML}{344A9A} %dunkelblau
+\definecolor{highlight2}{HTML}{A3B1E0} %hellblau
+\definecolor{highlight3}{HTML}{8F6B30} %braun
+\definecolor{highlight4}{HTML}{FFE862} %gelb
+\definecolor{highlight5}{HTML}{F5C2ED} %rosa
+\definecolor{highlight6}{HTML}{00997D} %grün
+
+\setbeamercolor{title}{fg=white}
+\setbeamercolor{author}{fg=white}
+%\setbeamercolor{institute}{fg=white}
+\setbeamercolor{frametitle}{fg=white}
+\setbeamercolor{date}{fg=white}
+\setbeamercolor{footline}{fg=highlight1}
+
+% Biblatex Referenzen werden damit formatiert.
+\DeclareLanguageMapping{ngerman}{ngerman-apa}
+
+
+% Fügt im Literaturverzeichnis "Verfügbar unter" und optional "Letzter Zugriff" 
+% zu .bib entries mit url und urldate hinzu.
+\DeclareFieldFormat{formaturl}{Verfügbar unter #1}
+\DeclareFieldFormat{formatdate}{Letzter Zugriff: #1}
+
+%\newbibmacro*{url+urldate}{%
+%	\iffieldundef{urlyear}{%
+%		\printtext[formaturl]{\printfield{url}}\nopunct%
+%	}{%
+%		\printtext[formaturl]{\printfield{url}}\adddot\space%
+%		\printtext[formatdate]{\printurldate}%
+%	}%
+%}
+
+% Inline citations in format Author (year), S. 11
+\newcommand\mycite[2][]{\citeauthor{#2}\ (\citeyear{#2})\ifx#1\undefined\else, #1\fi}
+
+
+% Ergänzt im Literaturverzeichnis den Publisher mit Ort (Ort, Herausgeber)
+\DeclareListFormat{publisher}{\printlist{location}\addcomma\space #1}
+
+% Um etwas in Anführungszeichen zu setzen, ohne, dass babel Umlaute erzeugt.
+\newcommand{\myquote}[1]{\glqq{}#1\grqq{}}
+
+%\newcommand*{\sectionpage}{\usebeamertemplate*{section page}}
+
+\AtBeginSection[]{
+    \begin{frame}<beamer>
+        \frametitle{currentsection}
+        \usebackgroundtemplate{\includegraphics[width=\paperwidth]{settings/templates/bg_chapter.pdf}}
+    \end{frame}
+}

@@ -1,0 +1,46 @@
+\documentclass[aspectratio=169]{beamer}
+
+\input{settings/packages}
+\input{settings/metadata}
+
+\begin{document}
+
+\include{settings/titlepage}
+
+{
+    \usebackgroundtemplate{\includegraphics[width=\paperwidth]{settings/templates/bg_titlepage.pdf}}
+    \begin{frame}
+        \titlepage
+    \end{frame}
+}
+
+\begin{frame}
+    \frametitle{Agenda}
+    \tableofcontents
+\end{frame}
+
+
+\usebackgroundtemplate{\includegraphics[width=\paperwidth]{settings/templates/bg_textpage.pdf}}
+
+\begin{frame}
+    \cite{alvarez_ea_software_2020}
+\end{frame}
+
+\section{This is a test}
+\frame{\sectionpage}
+
+\begin{frame}
+    \frametitle{Literatur}
+    \vfill
+    \printbibliography
+    \vfill
+\end{frame}
+
+{
+    \usebackgroundtemplate{\includegraphics[width=\paperwidth]{settings/templates/bg_lastpage.pdf}}
+    \begin{frame}
+        \frametitle{Danke}
+    \end{frame}
+}
+
+\end{document}

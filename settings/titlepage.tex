@@ -1,0 +1,23 @@
+\defbeamertemplate*{title page}{customized}[1][]{
+    \begin{minipage}[l]{0,7\linewidth}
+        \vspace{2.5cm}
+        {\Large \usebeamercolor[fg]{title}\inserttitle} \newline
+        {\normalsize \usebeamercolor[fg]{subtitle}\mylehrveranstaltung }
+    \end{minipage}
+
+    \vspace{1cm}
+
+    \begin{minipage}[t]{0,6\linewidth}
+        {\small \usebeamercolor[fg]{author} \underline{Modulverantwortung:}\ \mymodulverantwortung}
+        {\small \usebeamercolor[fg]{author}\underline{LV-Verantwortung:}\ \mylehrveranstaltungsverantwortung} \\ 
+    \end{minipage}
+
+    \vspace{0.5cm}
+
+    \begin{minipage}[t]{0,6\linewidth}
+        {\small \usebeamercolor[fg]{author}\insertauthor\ (\mymatrikel)} \\
+        {\small \usebeamercolor[fg]{author} \insertdate} \\
+        {\small \usebeamercolor[fg]{author}\insertshortinstitute} \\
+        {\small \usebeamercolor[fg]{author}\myuni\ \mycity} \\
+    \end{minipage}
+}
